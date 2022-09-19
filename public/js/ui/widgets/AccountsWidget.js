@@ -13,7 +13,7 @@ class AccountsWidget {
    * необходимо выкинуть ошибку.
    * */
   constructor( element ) {
-    if (element === undefined) {
+    if (!element) {
       throw new Error('Передан пустой элемент.')
      } 
       this.element = element;
@@ -94,12 +94,12 @@ class AccountsWidget {
    * item - объект с данными о счёте
    * */
   getAccountHTML(item){
-      return `<li class="account" data-id="${item.id}">` +
-          `<a href="#">` +
-              `<span> ${item.name}</span> ` +
-              `<span> ${item.sum} ₽</span> ` +
-          `</a>` +
-      `</li>`;
+      return `<li class="account" data-id="${item.id}">
+           <a href="#">
+               <span> ${item.name}</span> 
+               <span> ${item.sum} ₽</span> 
+           </a>
+       </li>`
   }
   /**
    * Получает массив с информацией о счетах.

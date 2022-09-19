@@ -12,7 +12,7 @@ class UserWidget {
    * необходимо выкинуть ошибку.
    * */
   constructor(element){
-    if (element === undefined) {
+    if (!element) {
       throw new Error('Передан пустой элемент.')
      } 
       this.element = element;
@@ -28,8 +28,7 @@ class UserWidget {
   update(){
     if(User.current() == undefined) {
       return
-    } else {
-      this.element.querySelector('.user-name').innerText = User.current().name;
-    };
+    } 
+    this.element.querySelector('.user-name').innerText = User.current().name;
   }
 }

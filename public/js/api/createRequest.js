@@ -25,15 +25,11 @@ const createRequest = (options = {}) => {
       xhr.onload = () => {
         let err = null;
         let response = null;
-        try {
           if(xhr.response?.success) {
             response = xhr.response;
           } else {
             err = xhr.response;
           }
-        } catch (e) {
-          err = e;
-        }
         options.callback(err, response)
       }
     }

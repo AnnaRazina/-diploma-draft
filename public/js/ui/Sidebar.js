@@ -45,16 +45,10 @@ class Sidebar {
       App.getModal('register').open();
     };
   
-    function transactionRemove () {
-      let transactions = Array.from(document.querySelectorAll('.transaction'));
-      transactions.forEach(item => item.remove());
-    };
-
     document.querySelector('.menu-item_logout').onclick = event => {
       event.preventDefault();
       User.logout((err, response) => {
         if(response && response.success) {
-          transactionRemove();
           App.setState('init');
         };
       });
